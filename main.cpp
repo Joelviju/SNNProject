@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include <vector>
 #include "LIFNeuron.hpp"
 
@@ -11,4 +11,26 @@ int main() {
                   << " Spiked=" << neuron.didSpike() << "\n";
     }
     return 0;
+} */
+#include "src/SNNNetwork.hpp"
+#include <iostream>
+
+int main() {
+    // 2 input neurons, 2 output neurons
+    SNNNetwork net(2, 2);
+
+    // XOR training set
+    std::vector<std::vector<double>> inputs = {
+        {0.0, 0.0},
+        {0.0, 1.0},
+        {1.0, 0.0},
+        {1.0, 1.0}
+    };
+    std::vector<int> targets = {0, 1, 1, 0};
+
+    // Train
+    net.train(inputs, targets, 10, 0.1);
+
+    return 0;
 }
+

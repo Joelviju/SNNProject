@@ -1,0 +1,26 @@
+{
+	"name": "SNNProject DevContainer",
+
+	// Instead of build, reuse the already-built image
+	"image": "snn-dev",
+
+	// Set the default workspace folder inside the container
+	"workspaceFolder": "/app",
+
+	// Run commands right after the container is created
+	"postCreateCommand": "cmake -S . -B build && cmake --build build",
+
+	// Configure VS Code inside container
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.cpptools",
+				"ms-vscode.cmake-tools",
+				"twxs.cmake"
+			]
+		}
+	},
+
+	// Match your Dockerfile (only include if you added the user in Dockerfile)
+	"remoteUser": "vscode"
+}

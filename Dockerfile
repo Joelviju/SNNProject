@@ -25,3 +25,8 @@ RUN cmake .. && make
 
 # Default command to run the executable
 CMD ["./snn"]
+# Create a vscode user so devcontainers can attach
+RUN useradd -ms /bin/bash vscode 
+    
+
+USER vscode
